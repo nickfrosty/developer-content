@@ -9,8 +9,6 @@ description: "Solana is a high performance network that is utilized for a range
 # displayed_sidebar: introductionSidebar
 ---
 
-# Solana Documentation
-
 Solana is a blockchain built for mass adoption. It's a high performance network
 that is utilized for a range of use cases, including finance, NFTs, payments,
 and gaming. Solana operates as a single global state machine, and is open,
