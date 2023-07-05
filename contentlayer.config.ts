@@ -189,6 +189,53 @@ export const CourseLesson = defineDocumentType(() => ({
 }));
 
 /**
+ * Content record schema a single Solana documentation record
+ */
+export const SolanaDoc = defineDocumentType(() => ({
+  name: "SolanaDoc",
+  filePathPattern: "docs/**/*.md",
+  fields: {
+    // use the standard content fields
+    ...basicContentFields,
+
+    /**
+     * define custom fields for this specific content record type...
+     */
+    id: {
+      type: "string",
+      description: "Manually defined unique id for this document",
+      required: false,
+    },
+    href: {
+      type: "string",
+      description: "Manually defined href path for this document",
+      required: false,
+    },
+    path: {
+      type: "string",
+      description:
+        "Path location of the markdown file, located within the '/docs' directory",
+      required: false,
+    },
+
+    /**
+     * Define custom fields that are used for the generated nav.json sidebar data
+     */
+    sidebarLabel: {
+      type: "string",
+      description:
+        "Custom sidebar label to use, instead of the document's title",
+      required: false,
+    },
+    sidebarSortOrder: {
+      type: "number",
+      description: "Sort order of the doc, relative to its siblings",
+      required: false,
+    },
+  },
+}));
+
+/**
  * Simple record type to enable ignoring files in the contentlayer checks
  * Note: This should be used sparingly (and normally only for readme files)
  *
@@ -219,6 +266,7 @@ export default makeSource({
     IgnoredDoc,
 
     // developer specific content
+    SolanaDoc,
     DeveloperGuide,
     DeveloperResource,
 
