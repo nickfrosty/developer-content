@@ -1,12 +1,10 @@
 ---
-slug: /
-id: docs-index
+sidebarSortOrder: 0
+# sidebarLabel: Solana Documentation
 title: Solana Documentation
-sidebarLabel: Home
 description: "Solana is a high performance network that is utilized for a range
   of use cases, \
   including finance, NFTs, payments, and gaming."
-# displayed_sidebar: introductionSidebar
 ---
 
 Solana is a blockchain built for mass adoption. It's a high performance network

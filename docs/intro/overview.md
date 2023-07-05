@@ -1,5 +1,7 @@
 ---
 title: "Introduction to Solana Development"
+# sidebarSortOrder: 1
+# sidebarLabel: Overview
 description:
   "Learn about the basic development concepts of the Solana blockchain."
 keywords:
