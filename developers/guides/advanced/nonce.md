@@ -25,7 +25,7 @@ This guide is meant to be a one-stop shop for Solana's Durable Nonces: a highly
 under-utilized and under-appreciated way to power your Solana dapps and make
 their user experience more reliable and deterministic.
 
-> <https://github.com/0xproflupin/solana-durable-nonces> The code for this guide
+> https://github.com/0xproflupin/solana-durable-nonces The code for this guide
 > can be found in the above repository, and its advisable to follow along and
 > run the examples locally to get a better grasp of Durable Nonces
 
