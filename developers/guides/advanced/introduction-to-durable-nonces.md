@@ -19,8 +19,6 @@ keywords:
   - web3 developer
 ---
 
-# Durable & Offline Transaction Signing using Nonces
-
 This guide is meant to be a one-stop shop for Solana's Durable Nonces: a highly
 under-utilized and under-appreciated way to power your Solana dapps and make
 their user experience more reliable and deterministic.
@@ -68,33 +66,32 @@ implement:
 
 We'll learn a ton in this guide:
 
-- [Durable \& Offline Transaction Signing using Nonces](#durable--offline-transaction-signing-using-nonces)
-  - [Durable Nonce Applications](#durable-nonce-applications)
-  - [Introduction to Durable Nonces](#introduction-to-durable-nonces)
-    - [Double Spend](#double-spend)
-    - [Recent Blockhashes](#recent-blockhashes)
-    - [Durable Nonces](#durable-nonces)
-    - [Nonce Account](#nonce-account)
-    - [Nonce Authority](#nonce-authority)
-  - [Durable Nonces with Solana CLI](#durable-nonces-with-solana-cli)
-    - [Create Nonce Authority](#create-nonce-authority)
-    - [Create Nonce Account](#create-nonce-account)
-    - [Fetch Nonce](#fetch-nonce)
-    - [Displace Nonce Account](#displace-nonce-account)
-    - [Advancing Nonce](#advancing-nonce)
-    - [Withdraw from Nonce Account](#withdraw-from-nonce-account)
-  - [Live Example: DAO Offline Co-Signing](#live-example-dao-offline-co-signing)
-    - [Using Recent Blockhashes](#using-recent-blockhashes)
-    - [Using Durable Nonces](#using-durable-nonces)
-  - [Durable Nonces with Solana `web3.js`](#durable-nonces-with-solana-web3js)
-    - [Create Nonce Authority](#create-nonce-authority-1)
-    - [Create Nonce Accounts](#create-nonce-accounts)
-    - [Fetch Initialised Nonce Account](#fetch-initialised-nonce-account)
-    - [Sign Transaction using Durable Nonce](#sign-transaction-using-durable-nonce)
-  - [Live Example: Poll Simulation App](#live-example-poll-simulation-app)
-    - [Introduction](#introduction)
-    - [Live App](#live-app)
-  - [References](#references)
+- [Durable Nonce Applications](#durable-nonce-applications)
+- [Introduction to Durable Nonces](#introduction-to-durable-nonces)
+  - [Double Spend](#double-spend)
+  - [Recent Blockhashes](#recent-blockhashes)
+  - [Durable Nonces](#durable-nonces)
+  - [Nonce Account](#nonce-account)
+  - [Nonce Authority](#nonce-authority)
+- [Durable Nonces with Solana CLI](#durable-nonces-with-solana-cli)
+  - [Create Nonce Authority](#create-nonce-authority)
+  - [Create Nonce Account](#create-nonce-account)
+  - [Fetch Nonce](#fetch-nonce)
+  - [Displace Nonce Account](#displace-nonce-account)
+  - [Advancing Nonce](#advancing-nonce)
+  - [Withdraw from Nonce Account](#withdraw-from-nonce-account)
+- [Live Example: DAO Offline Co-Signing](#live-example-dao-offline-co-signing)
+  - [Using Recent Blockhashes](#using-recent-blockhashes)
+  - [Using Durable Nonces](#using-durable-nonces)
+- [Durable Nonces with Solana `web3.js`](#durable-nonces-with-solana-web3js)
+  - [Create Nonce Authority](#create-nonce-authority-1)
+  - [Create Nonce Accounts](#create-nonce-accounts)
+  - [Fetch Initialised Nonce Account](#fetch-initialised-nonce-account)
+  - [Sign Transaction using Durable Nonce](#sign-transaction-using-durable-nonce)
+- [Live Example: Poll Simulation App](#live-example-poll-simulation-app)
+  - [Introduction](#introduction)
+  - [Live App](#live-app)
+- [References](#references)
 
 Let's get started!
 
@@ -138,7 +135,7 @@ executed very quickly in succession, some get the same recent blockhashes with
 high probability, thus
 [making them duplicate and avoid their execution](https://solana.stackexchange.com/questions/1161/how-to-avoid-sendtransactionerror-this-transaction-has-already-been-processed?rq=1).
 
-To summarise:
+To summarize:
 
 1. What if I don't want to send the transaction right away?
 2. What if I want to sign the transaction offline as I don't want to keep my
@@ -371,7 +368,7 @@ are submitted using blockhashes.
 > recent blockhashes, the expected outcome is failure, which will help us
 > appreciate why durable nonces are necessary here.
 
-The first step is to build a transfer transaction from `sender` to `reciever`
+The first step is to build a transfer transaction from `sender` to `receiver`
 and sign it with `co-sender`'s wallet.
 
 To sign an offline transaction, we need to use:
