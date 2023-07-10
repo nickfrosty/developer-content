@@ -95,6 +95,13 @@ const basicContentFields: FieldDefs = {
     description: "Difficulty level of the content",
     options: ["Intro", "Beginner", "Intermediate", "Expert"],
   },
+
+  metaOnly: {
+    type: "boolean",
+    description: "Whether or not this record is used for only metadata",
+    required: false,
+    default: false,
+  },
 };
 
 /**
@@ -199,7 +206,7 @@ export const SolanaDoc = defineDocumentType(() => ({
     ...basicContentFields,
 
     /**
-     * define custom fields for this specific content record type...
+     * Custom fields for this specific content record type
      */
     id: {
       type: "string",
@@ -219,7 +226,7 @@ export const SolanaDoc = defineDocumentType(() => ({
     },
 
     /**
-     * Define custom fields that are used for the generated nav.json sidebar data
+     * Custom fields that are used for the generated `nav.json` sidebar data
      */
     sidebarLabel: {
       type: "string",
