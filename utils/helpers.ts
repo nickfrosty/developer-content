@@ -13,6 +13,7 @@ export type NavItem = {
   href?: String;
   items?: Array<any>;
   sidebarSortOrder?: number;
+  metaOnly?: boolean;
 };
 
 /**
@@ -52,13 +53,19 @@ export function generateNavItemListing({
         )
           return;
 
+        // read and parse the markdown file
+        const record = matter.read(itemPath);
+
+        // auto force to a "meta only" record when it has no actual content
+        if (record.content.trim() == "") record.data.metaOnly = true;
+
         /**
          * construct a NavItem from the markdown file's frontmatter
          */
         const navItem: NavItem = computeNavItem({
           BASE_DIR,
           filePath: itemPath,
-          frontmatter: matter.read(itemPath).data,
+          frontmatter: record.data,
         });
 
         // add the current working item into the final listing
@@ -143,6 +150,7 @@ export function computeNavItem({
     label: frontmatter?.sidebarLabel || frontmatter?.title,
     path: frontmatter && filePath.replace(BASE_DIR, ""),
     sidebarSortOrder: frontmatter?.sidebarSortOrder,
+    metaOnly: frontmatter?.metaOnly,
   };
 
   const recordWithPath = filePath.replace(BASE_DIR, "").split(".")[0];
@@ -167,6 +175,19 @@ export function computeNavItem({
     // remove the `/index` href value for category roots
     if (!!record.href && record.path?.endsWith("index.md"))
       record.href = record.href.split("/index")[0];
+  }
+
+  /**
+   * when the record is only storing metadata, remove it as a linked item
+   * ---
+   * note: the `record.path` value should NOT be deleted
+   * since it is ued to determine the index of a category.
+   * also, deleting `record.metaOnly` prevents confusing
+   * data in the generated nav item listing (especially for categories)
+   */
+  if (!!record.metaOnly) {
+    delete record.href;
+    delete record.metaOnly;
   }
 
   return record;
