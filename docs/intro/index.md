@@ -1,8 +1,6 @@
 ---
-title: Introduction
-# sidebarLabel: Introduction
-# description: "This is an example description"
-sidebarSortOrder: 0
+# metaOnly mode prevents this from becoming a linked record in the DocsNav
+metaOnly: true
+sidebarLabel: Introduction
+sidebarSortOrder: 1
 ---
-
-This is the intro index
